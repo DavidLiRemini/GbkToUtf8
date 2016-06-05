@@ -7,12 +7,12 @@
 #define SWAPBYTE(x)\
 	((x & 0xff00)>>8) |\
 	((x & 0x00ff)<<8)
-//#ifdef DLL_EXPORTTAG
-//#define DLL_EXPORT __declspec(dllexport)
-//#else
-//#define DLL_EXPORT __declspec(dllimport)
-//#endif
+#ifdef DLL_EXPORTTAG
 #define DLL_EXPORT __declspec(dllexport)
+#else
+#define DLL_EXPORT __declspec(dllimport)
+#endif
+// #define DLL_EXPORT __declspec(dllexport)
 
 typedef char U_GB;
 typedef unsigned short U_NIC;
