@@ -107,4 +107,10 @@ CC_DLL_EXPORT void ToLower(std::string& str);
 // @Brief:	初始化字符转换器
 //************************************
 CC_DLL_EXPORT void InitializeCodeFormatTransformer();
+
+class CC_DLL_EXPORT CodeTransformUtility
+{
+public:
+	static std::string GetUtf8Code(char* gbkSource, int len);
+}
 #endif
