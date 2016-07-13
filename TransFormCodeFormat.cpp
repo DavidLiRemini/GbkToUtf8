@@ -13892,3 +13892,20 @@ void ToUpper(std::string& src)
 		}
 	}
 }
+
+std::string CodeTransformUtility::GetUtf8Code(char* gbkSource, int len)
+{
+	unsigned char temp[200] = { 0 };
+	InitializeCodeFormatTransformer();
+	int length = GbkToUtf8(reinterpret_cast<unsigned short*>(gbkSource), len, temp, sizeof(temp));
+	std::string result;
+	unsigned char* ptr = temp;
+	char tmp;
+	while (*ptr != '\0')
+	{
+		tmp = static_cast<char>(*ptr);
+		result.insert(result.end(), tmp);
+		ptr++;
+	}
+	return result;
+}
